@@ -1,4 +1,5 @@
 const express = require('express');
+const helmet = require('helmet');
 const routes = require('./routes/index');
 
 require('dotenv').config({
@@ -9,18 +10,32 @@ class App {
 
     constructor() {
         this.express = express();
-        this.routes();
         this.middlawares();
+        this.routes();
+        this.errorHandler();
     }
 
-    routes(){
+    middlawares() {
+        this.express.use(express.json())
+        this.express.use(helmet());
+    }
+
+    routes() {
         this.express.use(routes);
     }
 
-    middlawares(){
-        this.express.use( express.json() )
+    errorHandler() {
+        this.express.use(function (error, req, res, next) {
+            res.status(error.status || 500);
+            return res.send({
+                error: {
+                    mensagem: error.message
+                }
+            });
+        });
     }
-    
+
+
 }
 
 module.exports = new App().express;
