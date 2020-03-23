@@ -1,22 +1,26 @@
 const router = require('express').Router();
 
-const knex = require('../config/database');
-
 // Controllers
 const AccountsController = require('../app/http/controllers/AccountsController');
+const auth = require('../app/http/middlawares/Auth');
 
-router.route('/accounts')
+router
+    .route('/accounts')
     .get(AccountsController.index)
     .post(AccountsController.store)
     .delete()
     .put();
 
 
-router.get('/andrey', async function (req, res){
+router.get('/andrey',function (req, res) {
 
-    const query = await knex('users').select('email')
+    res.send({
+        'xd': 'xd'
+    })
+})
 
-    console.log(query);
+router.post('/andrey',async function (req, res) {
+    console.log(req.body);
 
     res.send({
         'xd': 'xd'

@@ -11,7 +11,6 @@ class Account extends Model {
             id,
             pk
         };
-
     }
 }
 
