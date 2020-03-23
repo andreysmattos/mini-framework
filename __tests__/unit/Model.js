@@ -122,9 +122,6 @@ describe('Model class.', () => {
         const allUsers = await User.all();
         const allPlayers = await Player.all();
 
-        // console.log(allUsers);
-        // console.log(allPlayers);
-
         expect(allUsers.length).toBeGreaterThan(1);
         expect(allPlayers.length).toBeGreaterThan(1);
 
@@ -137,9 +134,6 @@ describe('Model class.', () => {
 
         const qtdUser = await User.getCount();
         const qtdPlayer = await Player.getCount();
-
-        console.log('qtdUser', qtdUser);
-        console.log('qtdPlayer', qtdPlayer)
 
         expect(qtdUser).toBeGreaterThan(1);
         expect(qtdPlayer).toBeGreaterThan(1);
@@ -155,8 +149,6 @@ describe('Model class.', () => {
             }
         }
 
-        console.log('getPlayer in MODEL User');
-        console.log(await User.getPlayer(2));
     });
 
 
