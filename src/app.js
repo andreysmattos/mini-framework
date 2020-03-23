@@ -19,7 +19,8 @@ class App {
 
     middlawares(){
         this.express.use( express.json() )
-    }   
+    }
+    
 }
 
 module.exports = new App().express;
