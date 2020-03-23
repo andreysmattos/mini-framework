@@ -1,7 +1,15 @@
-
+const Joi = require('@hapi/joi');
 
 class Controller {
-    // this.validator   
+    constructor() {
+        /**
+         * DOC
+         * https://hapi.dev/module/joi/#usage
+         */
+        this.validator = Joi;
+    }
+
+
 }
 
 module.exports = Controller;

@@ -1,5 +1,4 @@
 const Controller = require('./Controller');
-
 const Account = require('../../models/Account');
 
 class AccountsController extends Controller {
