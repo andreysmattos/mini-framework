@@ -1,7 +1,5 @@
 const router = require('express').Router();
 
-const knex = require('../config/database');
-
 // Controllers
 const AccountsController = require('../app/http/controllers/AccountsController');
 
@@ -12,15 +10,21 @@ router.route('/accounts')
     .put();
 
 
-router.get('/andrey', async function (req, res){
+    router.get('/andrey', function (req, res){
 
-    const query = await knex('users').select('email')
+        throw 42;
 
-    console.log(query);
-
-    res.send({
-        'xd': 'xd'
+        res.send({
+            'xd': 'xd'
+        })
     })
-})
+
+    router.post('/andrey', async function (req, res){
+        console.log( req.body );
+
+        res.send({
+            'xd': 'xd'
+        })
+    })
 
 module.exports = router;

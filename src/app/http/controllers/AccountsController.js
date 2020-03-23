@@ -1,24 +1,10 @@
+const Controller = require('./Controller');
+
 const Account = require('../../models/Account');
 
-class AccountsController {
+class AccountsController extends Controller {
 
-    async index(req, res) {
-
-        // knex('table')
-        const conta = new Account();
-
-        console.log( await Account.query().where('email', 'andreysmattos@hotmail.com') );
-
-        // console.log( Account.table )
-
-
-
-
-        // console.log(conta.getPK())
-
-        // const xxxxt = await Account.db('users');
-        // console.log('xxxxt', xxxxt);   
-
+    async index(req, res) { 
         res.send({
             message: 'Informação de teste',
             data: {
