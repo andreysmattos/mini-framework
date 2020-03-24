@@ -2,20 +2,19 @@ const Controller = require('./Controller');
 const Account = require('../../models/Account');
 
 class AccountsController extends Controller {
-
-    async index(req, res) { 
-        res.send({
-            message: 'Informação de teste',
-            data: {
-            }
-        });
+    constructor() {
+        super()
+        console.log(this)
+        this.validator = super.validator.bind(this)
     }
 
-    store(req, res) {
-        res.send({
-            message: 'Informação de teste',
-            data: req.body
-        });
+    index(req, res) {
+        this.validator()
+    }
+
+
+    store(req, res){
+        return ''
     }
 }
 
