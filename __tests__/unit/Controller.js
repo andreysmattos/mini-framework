@@ -9,9 +9,9 @@ describe('Controller class.', () => {
         class UserController extends Controller {
             index() {
 
-                const schema = this.validator.object({
-                    username: this.validator.string().required(),
-                    email: this.validator.string().email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } })
+                const schema = this.validator().object({
+                    username: this.validator().string().required(),
+                    email: this.validator().string().email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } })
                 });
 
                 const {value: value1, error: error1} = schema.validate({

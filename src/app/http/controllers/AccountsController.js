@@ -1,21 +1,21 @@
 const Controller = require('./Controller');
-const Account = require('../../models/Account');
+// const Account = require('../../models/Account');
 
 class AccountsController extends Controller {
-    constructor() {
-        super()
-        console.log(this)
-        this.validator = super.validator.bind(this)
-    }
+  constructor() {
+    super();
+  }
 
-    index(req, res) {
-        this.validator()
-    }
+  index(req, res) {
+    console.log( super.validator() );
 
+    res.send({ das: 'DAS' });
+  }
 
-    store(req, res){
-        return ''
-    }
+  store(req, res) {
+    return '';
+  }
+
 }
 
 module.exports = new AccountsController();

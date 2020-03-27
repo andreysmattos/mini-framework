@@ -1,8 +1,8 @@
-const Joi = require('@hapi/joi');
+﻿const Joi = require('@hapi/joi');
 
 class Controller {
-    validator(){
-        console.log("oi")
+    validator() {
+        return Joi
     }
 }
 
