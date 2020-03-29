@@ -1,6 +1,11 @@
 const Model = require('../../src/app/models/Model');
 const knex = require('../../src/config/database');
 
+afterAll( () => {
+    knex.destroy();
+});
+
+
 beforeAll(async () => {
     await knex.schema.dropTableIfExists('users')
     await knex.schema.dropTableIfExists('players')
