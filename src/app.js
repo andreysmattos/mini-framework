@@ -1,6 +1,7 @@
 const express = require('express');
 const helmet = require('helmet');
 const routes = require('./routes/index');
+const cors = require('cors');
 
 require('dotenv').config({
     path: process.env.NODE_ENV == 'test' ? '.env.test' : '.env'
@@ -16,8 +17,9 @@ class App {
     }
 
     middlawares() {
-        this.express.use(express.json())
-        this.express.use(helmet());
+        this.express.use( cors() )
+        this.express.use( express.json() )
+        this.express.use( helmet() );
     }
 
     routes() {
