@@ -1,7 +1,5 @@
 const pluralize = require('pluralize');
-
 const util = {};
-
 
 /**
  * verificar se um valor existe. Não pode ser NULO, UNDEFINED, STRING VAZIA OU APENAS ESPAÇOS
@@ -11,8 +9,6 @@ const util = {};
  * @returns {Boolean}
  */
 util.existy = value => typeof (value) === 'string' ? value.trim().length > 0 : value !== undefined && value !== null
-
-
 
 /**
  * Transforma uma string CamelCase em snake_case
@@ -61,11 +57,5 @@ util.snakeCase = (string) => string.replace(/(?:^|\.?)([A-Z])/g, function (x, y)
  * // => 'user_properties'
  */
 util.makeTableName = (modelName) => util.snakeCase(pluralize(modelName));
-
-
-
-
-
-
 
 module.exports = util;

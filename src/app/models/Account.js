@@ -1,17 +1,15 @@
 const Model = require('./Model');
 
-class Account extends Model {   
-   
-    static getAccounts(id){
+class Account extends Model {
 
-        // console.log(this.db);
-
-         const pk = this.primaryKey;
+    static getAccounts(id) {
+        const pk = this.primaryKey;
         return {
             id,
             pk
         };
     }
+    
 }
 
 module.exports = Account;
