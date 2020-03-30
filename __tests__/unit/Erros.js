@@ -18,4 +18,34 @@ describe('Errors', () => {
 
     });
 
+    it('Retornar uma mensagem de erro dentro do metodo da classe', () => {
+        const { MissingParamError } = require('../../src/lib/errors');
+
+        class TestErrors {
+            init(a,b){
+                console.log('init start');
+                if(!a) throw new MissingParamError('a')
+
+                if(!b) throw new MissingParamError('b')
+
+                return true;
+                
+            }
+        }
+
+        const teste = new TestErrors();
+
+        function startError(){
+            teste.init()
+        }
+
+        function startError2(){
+            teste.init(1)
+        }
+
+        expect( startError ).toThrow(new MissingParamError('a'));
+        expect( startError2 ).toThrow(new MissingParamError('b'));
+
+    });
+
 });
