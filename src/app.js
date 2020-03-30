@@ -31,7 +31,7 @@ class App {
             res.status(error.status || 500);
             return res.send({
                 error: {
-                    mensagem: error.message
+                    message: error.message
                 }
             });
         });
