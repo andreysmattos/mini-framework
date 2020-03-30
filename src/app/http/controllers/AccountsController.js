@@ -8,8 +8,6 @@ class AccountsController extends Controller {
 
   index(req, res) {
     const joi = super.validator();
-    console.log('joi', joi);
-
     res.send({ das: 'DAS' });
   }
 
