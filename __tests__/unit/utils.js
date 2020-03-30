@@ -10,7 +10,6 @@ describe('Lib Utils - Utilidades para usar em todo projeto.', () => {
         expect(util.existy('               ')).toBe(false)
         expect(util.existy(null)).toBe(false)
         expect(util.existy(undefined)).toBe(false)
-
         expect(util.existy('       .        ')).toBe(true)
         expect(util.existy(1)).toBe(true)
         expect(util.existy(false)).toBe(true)
