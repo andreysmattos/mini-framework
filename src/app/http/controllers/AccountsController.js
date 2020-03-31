@@ -10,6 +10,7 @@ class AccountsController extends Controller {
 
   index(req, res) {
     throw new MissingParamError('das');
+    console.log('dasdas');
     const joi = super.validator();
     res.send({ das: 'DAS' });
   }
