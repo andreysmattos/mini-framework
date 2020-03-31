@@ -30,9 +30,7 @@ class App {
         this.express.use(function (error, req, res, next) {
             res.status(error.status || 500);
             return res.send({
-                error: {
-                    message: error.message
-                }
+                error: error.message
             });
         });
     }

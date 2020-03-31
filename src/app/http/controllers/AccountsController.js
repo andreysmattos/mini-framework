@@ -1,7 +1,7 @@
 const Controller = require('./Controller');
 // const Account = require('../../models/Account');
 
-const { MissingParamError, InvalidParamError} = require('../../../lib/errors');
+const { MissingParamError, UnauthorizedError} = require('../../../lib/errors');
 
 class AccountsController extends Controller {
   constructor() {
@@ -9,7 +9,7 @@ class AccountsController extends Controller {
   }
 
   index(req, res) {
-    throw new MissingParamError('email');
+    throw new MissingParamError('das');
     const joi = super.validator();
     res.send({ das: 'DAS' });
   }

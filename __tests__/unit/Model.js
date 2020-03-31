@@ -155,10 +155,4 @@ describe('Model class.', () => {
         }
 
     });
-
-
-
-
-
-
 });
