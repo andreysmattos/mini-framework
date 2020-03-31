@@ -23,12 +23,10 @@ module.exports = async (req, res, next) => {
             throw new InvalidParamError('Header Authorization');
         }
 
-        // Validar aki ou no verify ????
         if (!TokenValidator.isValid(token)) {
             throw new InvalidParamError('Header Authorization');
         }
 
-        // MUDAR ESSES NOMES!!!! Token?? token? TokenClass???? tá mt parecido!
         const Token = new TokenClass();
         const tokenData = await Token.verify(token);
         req.userId = tokenData._id;
