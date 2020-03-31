@@ -23,7 +23,6 @@ describe('Errors', () => {
 
         class TestErrors {
             init(a,b){
-                console.log('init start');
                 if(!a) throw new MissingParamError('a')
 
                 if(!b) throw new MissingParamError('b')

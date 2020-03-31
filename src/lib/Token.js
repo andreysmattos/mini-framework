@@ -1,6 +1,6 @@
 // REFATORAR TUDO QUE TEM A VER COM TOKEN.
 const jwt = require('jsonwebtoken');
-const { MissingParamError, InvalidParamError } = require('./errors/index');
+const { MissingParamError, InvalidParamError, UnauthorizedError } = require('./errors/index');
 
 class Token {
     constructor() {
@@ -32,12 +32,12 @@ class Token {
         }
 
         if (!token) {
-            throw new MissingParamError('token');
+            throw new UnauthorizedError();
         }
 
         return await jwt.verify(token, this.secret, (err, decoded) => {
             if (err) {
-                throw new InvalidParamError('token');
+                throw new UnauthorizedError();
             }
             return decoded;
         })

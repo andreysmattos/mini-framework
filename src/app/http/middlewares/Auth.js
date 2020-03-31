@@ -1,15 +1,14 @@
-// const jwt = require('jsonwebtoken');
-const Token = require('../../../lib/Token');
-const { MissingParamError, InvalidParamError } = require('../../../lib/errors');
+const TokenClass = require('../../../lib/Token');
+const { MissingParamError, InvalidParamError, UnauthorizedError } = require('../../../lib/errors');
 const { TokenValidator } = require('../../../lib/validation');
 
-module.exports = (req, res, next) => {
+module.exports = async (req, res, next) => {
     try {
 
         const { authorization } = req.headers;
 
         if (!authorization) {
-            throw new MissingParamError('Header Authorization');
+            throw new UnauthorizedError();
         }
 
         const parts = authorization.split(' ');
@@ -20,16 +19,21 @@ module.exports = (req, res, next) => {
 
         const [scheme, token] = parts;
 
-        if (! /^Bearer$/i.teste(scheme)) {
+        if (! /^Bearer$/i.test(scheme)) {
             throw new InvalidParamError('Header Authorization');
         }
 
+        // Validar aki ou no verify ????
         if (!TokenValidator.isValid(token)) {
             throw new InvalidParamError('Header Authorization');
         }
 
-        // Verificar TOKEN AKI.
-        Token.verify();
+        // MUDAR ESSES NOMES!!!! Token?? token? TokenClass???? tá mt parecido!
+        const Token = new TokenClass();
+        const tokenData = await Token.verify(token);
+        req.userId = tokenData._id;
+
+        next();
 
     } catch (e) {
         next(e);

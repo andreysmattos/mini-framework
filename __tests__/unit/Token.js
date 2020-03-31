@@ -25,7 +25,6 @@ describe('Token', () => {
         expect(token).not.toBeNull();
 
         const response = Token.verify('any_token');
-        // console.log('response', response)
         expect(response).rejects.toThrow();
     });
 
