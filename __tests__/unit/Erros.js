@@ -41,4 +41,25 @@ describe('Errors', () => {
     expect(startError).toThrow(new MissingParamError('a'))
     expect(startError2).toThrow(new MissingParamError('b'))
   })
+
+
+  it('Deve retornar um SERVER ERROR', () => {
+    const { ServerError } = require('../../src/lib/errors')
+
+    expect(() => {
+      throw new ServerError()
+    }).toThrow(new ServerError())
+
+
+  })
+
+  it('Deve retornar um BadRequest', () => {
+    const { BadRequestError } = require('../../src/lib/errors')
+
+    expect(() => {
+      throw new BadRequestError()
+    }).toThrow(new BadRequestError())
+
+  
+  })
 })
