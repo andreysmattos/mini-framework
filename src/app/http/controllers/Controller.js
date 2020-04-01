@@ -2,4 +2,4 @@
 
 }
 
-module.exports = Controller;
+module.exports = Controller

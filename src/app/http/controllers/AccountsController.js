@@ -1,24 +1,17 @@
-const Controller = require('./Controller');
-// const Account = require('../../models/Account');
+const Controller = require('./Controller')
+// const Account = require('../../models/Account')
 
-const { MissingParamError, UnauthorizedError} = require('../../../lib/errors');
+const { MissingParamError } = require('../../../lib/errors')
 
 class AccountsController extends Controller {
-  constructor() {
-    super();
+  index (req, res) {
+    throw new MissingParamError('das')
+    // res.send({ das: 'DAS' })
   }
 
-  index(req, res) {
-    throw new MissingParamError('das');
-    console.log('dasdas');
-    const joi = super.validator();
-    res.send({ das: 'DAS' });
+  store (req, res) {
+    return ''
   }
-
-  store(req, res) {
-    return '';
-  }
-
 }
 
-module.exports = new AccountsController();
+module.exports = new AccountsController()

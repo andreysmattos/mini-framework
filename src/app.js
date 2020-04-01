@@ -1,41 +1,38 @@
-const express = require('express');
-const helmet = require('helmet');
-const routes = require('./routes/index');
-const cors = require('cors');
+const express = require('express')
+const helmet = require('helmet')
+const routes = require('./routes/index')
+const cors = require('cors')
 
 require('dotenv').config({
-    path: process.env.NODE_ENV == 'test' ? '.env.test' : '.env'
-});
+  path: process.env.NODE_ENV === 'test' ? '.env.test' : '.env'
+})
 
 class App {
+  constructor () {
+    this.express = express()
+    this.middlawares()
+    this.routes()
+    this.errorHandler()
+  }
 
-    constructor() {
-        this.express = express();
-        this.middlawares();
-        this.routes();
-        this.errorHandler();
-    }
+  middlawares () {
+    this.express.use(cors())
+    this.express.use(express.json())
+    this.express.use(helmet())
+  }
 
-    middlawares() {
-        this.express.use( cors() )
-        this.express.use( express.json() )
-        this.express.use( helmet() );
-    }
+  routes () {
+    this.express.use(routes)
+  }
 
-    routes() {
-        this.express.use(routes);
-    }
-
-    errorHandler() {
-        this.express.use(function (error, req, res, next) {
-            res.status(error.status || 500);
-            return res.send({
-                error: error.message
-            });
-        });
-    }
-
-
+  errorHandler () {
+    this.express.use(function (error, req, res, next) {
+      res.status(error.status || 500)
+      return res.send({
+        error: error.message
+      })
+    })
+  }
 }
 
-module.exports = new App().express;
+module.exports = new App().express
