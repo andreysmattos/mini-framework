@@ -22,6 +22,7 @@ describe('Middleware AUTH', () => {
       .post('/verify')
       .set('Authorization', `Bearer ${token}`)
       .send()
+      
 
     expect(response.status).toBe(200)
     expect(response.body).toHaveProperty('_id', 189)
