@@ -1,1 +1,1 @@
-# slim-framework
+# mini-framework
