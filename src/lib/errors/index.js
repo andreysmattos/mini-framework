@@ -1,6 +1,8 @@
 const MissingParamError = require('./MissingParamError')
 const InvalidParamError = require('./InvalidParamError')
 const UnauthorizedError = require('./UnauthorizedError')
+const BadRequestError = require('./BadRequestError')
+const ServerError = require('./ServerError')
 
 /**
  * => Use: throw new MissingParamError('E-mail')
@@ -11,5 +13,7 @@ const UnauthorizedError = require('./UnauthorizedError')
 module.exports = {
   MissingParamError,
   InvalidParamError,
-  UnauthorizedError
+  UnauthorizedError,
+  BadRequestError,
+  ServerError
 }
