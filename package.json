@@ -20,7 +20,7 @@
     "knex": "^0.20.12",
     "mysql": "^2.18.1",
     "pluralize": "^8.0.0",
-    "validator": "^13.0.0"
+    "validator": "^13.7.0"
   },
   "devDependencies": {
     "jest": "^25.1.0",
